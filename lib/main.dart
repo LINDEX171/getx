@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
                 Get.snackbar(
                   "snackbar title",
                   "this will be snackbar message",
+                  snackPosition: SnackPosition.BOTTOM,
+                  // titleText: Text("Another title"),
+                  // messageText: Text("Another message",style: TextStyle(color: Colors.white),)
                 );
               },
               child: Text("snackbar")),
