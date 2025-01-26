@@ -18,29 +18,32 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: OutlinedButton(
               onPressed: () {
-                Get.defaultDialog(
-                  title: "dzd",
-                  middleText: "thisis a middletext",
-                  middleTextStyle: TextStyle(color: Colors.grey),
-                  backgroundColor: Colors.blue,
-                  radius: 80,
-                  //customize the middle text
-                  content: Row(
+                Get.bottomSheet(Container(
+                  ///Le widget Wrap place les enfants sur une
+                  ///ligne (ou une colonne) et, si l'espace
+                  ///manque, il passe automatiquement à une
+                  ///nouvelle ligne (ou colonne).
+                  child: Wrap(
                     children: [
-                      CircularProgressIndicator(),
-                      SizedBox(width: 16,),
-                      Expanded(child: Text("data loaing"))
+                      ListTile(
+                        leading: Icon(Icons.wb_sunny_outlined),
+                        title: Text("Light theme"),
+                        onTap: () {
+                          Get.changeTheme(ThemeData.light());
+                        },
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.wb_sunny),
+                        title: Text("Dark theme"),
+                        onTap: () {
+                          Get.changeTheme(ThemeData.dark());
+                        },
+                      ),
                     ],
                   ),
-                  textCancel: "cancel" ,
-                  cancelTextColor: Colors.white,
-                  textConfirm: "confirm",
-                  confirmTextColor: Colors.white,
-                  //we can customize all
-
-                );
+                ));
               },
-              child: Text("dialog")),
+              child: Text("Bottom sheet")),
         ),
       ),
     );
