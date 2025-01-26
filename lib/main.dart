@@ -14,19 +14,33 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
-        appBar: AppBar(title: Text("snackbar")),
+        appBar: AppBar(title: Text("Dialog")),
         body: Center(
           child: OutlinedButton(
               onPressed: () {
-                Get.snackbar(
-                  "snackbar title",
-                  "this will be snackbar message",
-                  snackPosition: SnackPosition.BOTTOM,
-                  // titleText: Text("Another title"),
-                  // messageText: Text("Another message",style: TextStyle(color: Colors.white),)
+                Get.defaultDialog(
+                  title: "dzd",
+                  middleText: "thisis a middletext",
+                  middleTextStyle: TextStyle(color: Colors.grey),
+                  backgroundColor: Colors.blue,
+                  radius: 80,
+                  //customize the middle text
+                  content: Row(
+                    children: [
+                      CircularProgressIndicator(),
+                      SizedBox(width: 16,),
+                      Expanded(child: Text("data loaing"))
+                    ],
+                  ),
+                  textCancel: "cancel" ,
+                  cancelTextColor: Colors.white,
+                  textConfirm: "confirm",
+                  confirmTextColor: Colors.white,
+                  //we can customize all
+
                 );
               },
-              child: Text("snackbar")),
+              child: Text("dialog")),
         ),
       ),
     );
