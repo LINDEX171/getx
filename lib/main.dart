@@ -19,18 +19,21 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: OutlinedButton(
             onPressed: () {
-              Get.to(
-                HomePage(),
-                 // fullscreenDialog: true,
+              // Get.to(
+              //   HomePage(),
+              //    // fullscreenDialog: true,
+              //
+              //   //to provide animation
+              //   transition: Transition.zoom,
+              //     //duration for transition animation
+              //      duration: Duration(milliseconds: 4000),
+              //   //Curve Animation
+              //   // curve: Curves.bounceInOut
+              // );
 
-                //to provide animation
-                transition: Transition.zoom,
-                  //duration for transition animation
-                   duration: Duration(milliseconds: 4000),
-                //Curve Animation
-                // curve: Curves.bounceInOut
-              );
               // Go to home screen but no option to return to previous screen
+              Get.off(HomePage());
+
 
             },
             child: Text("GO to home"),
