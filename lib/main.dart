@@ -32,8 +32,11 @@ class MyApp extends StatelessWidget {
               // );
 
               // Go to home screen but no option to return to previous screen
-              Get.off(HomePage());
+              // Get.off(HomePage());
 
+              //Go to home screen and cancel all previous
+              //screen route
+              Get.offAll(HomePage());
 
             },
             child: Text("GO to home"),
