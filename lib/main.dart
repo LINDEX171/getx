@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,36 +15,26 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
-        appBar: AppBar(title: Text("Dialog")),
+        appBar: AppBar(title: Text("Navigation")),
         body: Center(
           child: OutlinedButton(
-              onPressed: () {
-                Get.bottomSheet(Container(
-                  ///Le widget Wrap place les enfants sur une
-                  ///ligne (ou une colonne) et, si l'espace
-                  ///manque, il passe automatiquement à une
-                  ///nouvelle ligne (ou colonne).
-                  child: Wrap(
-                    children: [
-                      ListTile(
-                        leading: Icon(Icons.wb_sunny_outlined),
-                        title: Text("Light theme"),
-                        onTap: () {
-                          Get.changeTheme(ThemeData.light());
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.wb_sunny),
-                        title: Text("Dark theme"),
-                        onTap: () {
-                          Get.changeTheme(ThemeData.dark());
-                        },
-                      ),
-                    ],
-                  ),
-                ));
-              },
-              child: Text("Bottom sheet")),
+            onPressed: () {
+              Get.to(
+                HomePage(),
+                 // fullscreenDialog: true,
+
+                //to provide animation
+                transition: Transition.zoom,
+                  //duration for transition animation
+                   duration: Duration(milliseconds: 4000),
+                //Curve Animation
+                // curve: Curves.bounceInOut
+              );
+              // Go to home screen but no option to return to previous screen
+
+            },
+            child: Text("GO to home"),
+          ),
         ),
       ),
     );
