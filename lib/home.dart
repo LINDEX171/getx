@@ -9,15 +9,23 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("home page")),
       body: Center(
-        child: Row(
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            IconButton(onPressed: () {
-            Get.back();
-            }, icon: Icon(Icons.skip_previous)),
+            Row(
+              children: [
+                IconButton(onPressed: () {
+                Get.back();
+                }, icon: Icon(Icons.skip_previous)),
 
-            IconButton(onPressed: () {
+                IconButton(onPressed: () {
 
-            }, icon: Icon(Icons.next_plan_rounded))
+                }, icon: Icon(Icons.next_plan_rounded))
+              ],
+            ),
+            SizedBox(height: 15,),
+            Text("${Get.arguments}",style: TextStyle(color: Colors.red)),
           ],
         ),
       ),
