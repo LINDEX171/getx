@@ -27,8 +27,8 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 15,),
           // Text("${Get.arguments}",style: TextStyle(color: Colors.red)),
           OutlinedButton(onPressed: () {
-            Get.toNamed("/nextScreen");
-          }, child: Text("GO TO Home"))
+           Get.toNamed("/nextScreen?channel=Ripples Code&content=Flutter Getx");
+          }, child: Text("GO TO Nextscreen"))
         ],
       ),
     );
