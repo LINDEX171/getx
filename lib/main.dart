@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text("Navigation")),
         body: Center(
           child: OutlinedButton(
-            onPressed: () {
+            onPressed: () async {
               // Get.to(
               //   HomePage(),
               //    // fullscreenDialog: true,
@@ -38,9 +38,13 @@ class MyApp extends StatelessWidget {
               //screen route
               // Get.offAll(HomePage());
               //Go to the next screen with some data
-              Get.to(HomePage(),arguments: "data from main");
+              // Get.to(HomePage(),arguments: "data from main");
+
+              //Go to the next screen and receive data sent from home screen
+             var data =await Get.to(HomePage());
+             print("the received data is ${data}");
             },
-            child: Text("GO to home"),
+            child: Text("GO to home,"),
           ),
         ),
       ),

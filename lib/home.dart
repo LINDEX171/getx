@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 IconButton(onPressed: () {
-                Get.back();
+                Get.back(result: "this is from home screen");
                 }, icon: Icon(Icons.skip_previous)),
 
                 IconButton(onPressed: () {
@@ -25,7 +25,8 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 15,),
-            Text("${Get.arguments}",style: TextStyle(color: Colors.red)),
+            // Text("${Get.arguments}",style: TextStyle(color: Colors.red)),
+
           ],
         ),
       ),
