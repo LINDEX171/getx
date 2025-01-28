@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/student.dart';
 
 class ReacPage extends StatefulWidget {
 
@@ -10,16 +11,11 @@ class ReacPage extends StatefulWidget {
 }
 
 class _ReacPageState extends State<ReacPage> {
-  //to make variable reactive
-  var count = 0.obs;
 
-  //create a methode
-  void increment(){
-    count++;
-  }
-  void decrement(){
-    count--;
-  }
+  //create a object
+  var student = Student();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +25,12 @@ class _ReacPageState extends State<ReacPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Obx(() =>Text("Count is ${count}",style: TextStyle(fontSize: 25)), ),
+            Obx(() =>Text("Name is ${student.name.value}",style: TextStyle(fontSize: 25)), ),
             SizedBox(height: 15,),
             OutlinedButton(onPressed: () {
-return increment();
+              student.name.value = student.name.value.toUpperCase();
             }, child: Text("increment")),
-            OutlinedButton(onPressed: () {
-              return decrement();
-            }, child: Text("decrement"))
+
           ],
         ),
       ),
