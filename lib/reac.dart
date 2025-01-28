@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:getx/student.dart';
 
 class ReacPage extends StatefulWidget {
-
   const ReacPage({super.key});
 
   @override
@@ -11,10 +10,8 @@ class ReacPage extends StatefulWidget {
 }
 
 class _ReacPageState extends State<ReacPage> {
-
-  //create a object
-  var student = Student();
-
+  //create a object for making the entire class observable
+  var student = Student(name: "Ibrahima", age: 25).obs;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +22,21 @@ class _ReacPageState extends State<ReacPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Obx(() =>Text("Name is ${student.name.value}",style: TextStyle(fontSize: 25)), ),
-            SizedBox(height: 15,),
-            OutlinedButton(onPressed: () {
-              student.name.value = student.name.value.toUpperCase();
-            }, child: Text("increment")),
-
+            Obx(
+              () => Text(
+                  "Name is ${student.value.name} & age is ${student.value.age}",
+                  style: TextStyle(fontSize: 25)),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            OutlinedButton(
+                onPressed: () {
+                  student.update((student) {
+                    student?.name=student?.name.toString().toUpperCase();
+                  });
+                },
+                child: Text("Upper")),
           ],
         ),
       ),
