@@ -13,8 +13,12 @@ class _NextScreenPageState extends State<NextScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(title: Text("next screen page")),
-      body: Center(
-        child: Text("this is the channel ${Get.parameters['channel']} and this is the channel ${Get.parameters['content']}"),
+      body: Column(
+        children: [
+          Center(
+            child: Text("this is the channel ${Get.parameters['channel']} and this is the channel ${Get.parameters['content']}"),
+          ),
+        ],
       ),
     );
   }

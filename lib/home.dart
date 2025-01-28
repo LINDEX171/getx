@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/nextscreen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
