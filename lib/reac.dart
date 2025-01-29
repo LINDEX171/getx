@@ -16,7 +16,7 @@ class _ReacPageState extends State<ReacPage> {
 
 
   //create a object of mycontrolller class (create the instance of controlller)
-  MyController myController =  Get.put(MyController());
+  // MyController myController =  Get.put(MyController());
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +27,15 @@ class _ReacPageState extends State<ReacPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Obx(
-              () => Text(
-                  "Name is ${myController.student.value.name} & age is ${myController.student.value.age}",
-                  style: TextStyle(fontSize: 25)),
-            ),
+            GetX<MyController>(init: MyController(), builder: (controller) {
+              return Text("count is ${controller.count}",style: TextStyle(fontSize: 25),);
+            },),
             SizedBox(
               height: 15,
             ),
             OutlinedButton(
                 onPressed: () {
-                  myController.convertToUpperCase();
+                Get.find<MyController>().increment();
                 },
                 child: Text("Upper")),
           ],
