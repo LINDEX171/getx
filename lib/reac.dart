@@ -16,7 +16,7 @@ class _ReacPageState extends State<ReacPage> {
 
 
   //create a object of mycontrolller class (create the instance of controlller)
-  MyController myController =   Get.put(MyController());
+  MyController myController =  Get.put(MyController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _ReacPageState extends State<ReacPage> {
           children: [
             Obx(
               () => Text(
-                  "Name is ${myController.student.name} & age is ${myController.student.age}",
+                  "Name is ${myController.student.value.name} & age is ${myController.student.value.age}",
                   style: TextStyle(fontSize: 25)),
             ),
             SizedBox(
