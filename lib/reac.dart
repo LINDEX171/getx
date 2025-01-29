@@ -14,9 +14,8 @@ class _ReacPageState extends State<ReacPage> {
   //create a object for making the entire class observable
   // var student = Student(name: "Ibrahima", age: 25).obs;
 
-
   //create a object of mycontrolller class (create the instance of controlller)
-  // MyController myController =  Get.put(MyController());
+    MyController myController =  Get.put(MyController());
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +26,22 @@ class _ReacPageState extends State<ReacPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GetX<MyController>(init: MyController(), builder: (controller) {
-              return Text("count is ${controller.count}",style: TextStyle(fontSize: 25),);
-            },),
+            GetX<MyController>(
+              // init: MyController(),
+              builder: (controller) {
+                return Text(
+                  "count is ${myController.count}",
+                  style: TextStyle(fontSize: 25),
+                );
+              },
+            ),
             SizedBox(
               height: 15,
             ),
             OutlinedButton(
                 onPressed: () {
-                Get.find<MyController>().increment();
+                  // Get.find<MyController>().increment();
+                  myController.increment();
                 },
                 child: Text("Upper")),
           ],
