@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
-import 'package:getx/student.dart';
 
 class MyController extends GetxController {
-  var count = 0.obs;
-
+  var count = 0;
   void increment (){
     count++;
+    update(); //will updatre the count variable on Ui wich uses it
   }
 }
